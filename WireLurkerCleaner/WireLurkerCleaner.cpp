@@ -5,7 +5,7 @@
 
 #define BLOCK_SIZE 655360
 
-char SPACES[100] = {0};
+char SPACES[140] = {0};
 
 void msg(char* fmt, ...)
 {
@@ -209,15 +209,23 @@ void detect()
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	// Prepare the console window
+	system("mode 150, 30");
+
 	setlocale(LC_ALL, "");
 	memset(SPACES, ' ', sizeof(SPACES));
 	msg("==== WireLurkerCleaner ====\n");
 	msg("Read README.md before continue. Use at your own risk.\n");
-	msg("Press any key to start detection:\n");
+	msg("Press any key to start scan:\n");
 	_getch();
 
 	detect();
 
+	printf(SPACES);
+	printf("\n");
+	msg("Scan finished.\n");
+
+	system("pause");
 	return 0;
 }
 
